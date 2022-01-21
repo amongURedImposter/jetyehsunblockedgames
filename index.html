@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!--
+         ⣿⣿⣿⣿⣿⠟⠉⠁⠄⠄⠄⠈⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⠏⠄⠄⠄⠄⠄⠄⠄⠄⠄⠸⢿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣏⠄⡠⡤⡤⡤⡤⡤⡤⡠⡤⡤⣸⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣗⢝⢮⢯⡺⣕⢡⡑⡕⡍⣘⢮⢿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⡧⣝⢮⡪⡪⡪⡎⡎⡮⡲⣱⣻⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⠟⠁⢸⡳⡽⣝⢝⢌⢣⢃⡯⣗⢿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⠟⠁⠄⠄⠄⠹⡽⣺⢽⢽⢵⣻⢮⢯⠟⠿⠿⢿⣿⣿⣿⣿⣿
+         ⡟⢀⠄⠄⠄⠄⠄⠙⠽⠽⡽⣽⣺⢽⠝⠄⠄⢰⢸⢝⠽⣙⢝⢿
+         ⡄⢸⢹⢸⢱⢘⠄⠄⠄⠄⠄⠈⠄⠄⠄⣀⠄⠄⣵⣧⣫⣶⣜⣾
+         ⣧⣬⣺⠸⡒⠬⡨⠄⠄⠄⠄⠄⠄⠄⣰⣿⣿⣿⣿⣿⣷⣽⣿⣿
+         ⣿⣿⣿⣷⠡⠑⠂⠄⠄⠄⠄⠄⠄⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⣄⠠⢀⢀⢀⡀⡀⠠⢀⢲⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⣿⢐⢀⠂⢄⠇⠠⠈⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⣧⠄⠠⠈⢈⡄⠄⢁⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⣿⡀⠠⠐⣼⠇⠄⡀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⣯⠄⠄⡀⠈⠂⣀⠄⢀⠄⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿
+         ⣿⣿⣿⣿⣿⣶⣄⣀⠐⢀⣸⣷⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿
+           I'M A GNOME AND YOU'VE BEEN
+                     GNOMED
+         -->
+      <title>Discovery</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="blogDexStyle.css">
+      <style>
+        #progress{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 25px;
+            right: 68px;
+            display: grid;
+            place-items: center;
+            z-index:105;
+        }
+        #progress-value{
+            display: block;
+            height: calc(100% - 5px);
+            width: calc(100% - 5px);
+            background-color: #212121;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 600;
+            font-size: 0px;
+        }
+         ul {
+         font-family: 'Open Sans', sans-serif; 
+         list-style-type: none;
+         margin:	0;
+         padding: 0;
+         background-color: #181818;
+         font-size: 0;
+         list-style-type: none;
+         position: -webkit-sticky; /* Safari */
+         position: sticky;
+         top: 0;
+         z-index:300;
+         }
+         .nav {
+         display: inline-block;
+         }
+         li a, .dropbtn {
+         display: inline-block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         font-size: initial;
+         }
+         li a:hover, .dropdown:hover .dropbtn {
+         background-color: #aaaaaa;
+         color: black;
+         }
+         .dropdown {
+         display: inline-block;
+         position: relative;
+         }
+         .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #3d3d3d;
+         width: 160px;
+         z-index: 1;
+         }
+         .dropdown-content a {
+         color: white;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+         text-align: left;
+         width: 100%;
+         z-index: 1;
+         }
+         .dropdown-content a:hover {
+         background-color: #505050;
+         color: white;
+         }
+         .dropdown:hover .dropdown-content {
+         display: block;
+         }
+         h1 {
+         font-family: 'Open Sans', sans-serif; 
+         font-size: 80px;
+         text-align: center;
+         }
+         h5 {
+         font-family: 'Open Sans', sans-serif; 
+         text-align: center;
+         }
+         h5 {
+         font-family: 'Open Sans', sans-serif; 
+         text-decoration: none;
+         text-align: center;
+         }
+         input[type=text] {
+         outline: none;
+         width: 130px;
+         box-sizing: border-box;
+         border: 2px solid darkgrey;
+         border-radius: 10px;
+         font-size: 16px;
+         background-color: #ccc;
+         background-image: url('https://img.icons8.com/material-outlined/24/000000/search--v1.png');
+         background-position: 10px 10px; 
+         background-repeat: no-repeat;
+         padding: 12px 20px 12px 48px;
+         transition: width 0.4s ease-in-out;
+         }
+         input[type=text]:focus {
+         width: 35%;
+         }
+         .selectButton {
+         color: white;
+         border: none;
+         outline: none;
+         padding: 12px 16px;
+         background-color: #3d3d3d;
+         cursor: pointer;
+         border-radius: 4px;
+         }
+         .selectButton:hover {
+         background: #505050;
+         }
+         .selectedButton {
+         background-color: #aaaaaa;
+         color: black;
+         border: none;
+         outline: none;
+         padding: 12px 16px;
+         cursor: pointer;
+         border-radius: 4px;
+         }
+         a {
+         text-decoration: none;
+         cursor: pointer;
+         }
+         a:hover {
+         text-decoration: none;
+         cursor: pointer;
+         color: white;
+         }
+         .right-col {
+         float: right;
+         margin-top: -77px;
+         margin-right: 48px;
+         }
+         #icon {
+         width: 80px;
+         cursor: pointer;
+         }
+         h1, h2 {
+         text-align: center;
+         text-transform: uppercase;
+         font-weight: 400;
+         font-size: 65px;
+         }
+      </style>
+      <link rel='icon' href="https://i.ibb.co/DYWMfgQ/Untitled-2.png">
+   </head>
+   <body class="color">
+      <header>
+         <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            "yeh" - Brett Chase
+         </div>
+         <h1>
+            <div class ="title">
+               Jet Yeh's Unblocked Games
+            </div>
+            <div class=left-col>
+               <img src="https://i.ibb.co/4s2gL7v/fat-man-cartoon-illustration-FW3-DNH-jpg-png.png"
+                  width="120px">
+            </div>
+            <div class=right-col>
+               <img src="https://i.ibb.co/DCvv9Gz/play-button.png" id="icon">
+            </div>
+            <audio id="mySong">
+               <source src="https://codehs.com/uploads/878bb3c793193718a2c071f08521161b" type="audio/ogg">
+            </audio>
+            <script>
+               var mySong = document.getElementById("mySong");
+               var icon = document.getElementById("icon");
+               icon.onclick = function() {
+                   if(mySong.paused) {
+                       mySong.play();
+                       icon.src = "https://i.ibb.co/2kbtwrG/pause.png"
+                   }else{
+                       mySong.pause();
+                           icon.src = "https://i.ibb.co/DCvv9Gz/play-button.png"
+                   }
+               }
+            </script>
+         </h1>
+      </header>
+      <br>
+      <ul id="navbar">
+         <li class="dropdown">
+            <a class="dropbtn" href="javascript:void(0)">Alternative Sites</a>
+            <div class="dropdown-content">
+               <a href="http://potty-racers3.com/">Potty Racers</a>
+               <a href="https://jacersthecool.codehs.me/cArcade.html">JacerstheCool</a>
+               <a href="https://schoolist3r.netlify.app/">Schoolist3r</a>
+            </div>
+         </li>
+         <li class="nav"><a href="/request.html">Request Game</a></li>
+         <li class="nav"><a href="/report.html">Report Bug</a></li>
+         <li class="nav"><a href="#">Games</a></li>
+      </ul>
+      <br>
+      <center>
+      <div class="bodyMain">
+      <div>
+      <div class="main">
+         <div>
+            <button name="all" onclick="switchGame('all');" class="selectedButton selectable">All</button>
+            <button name="new" onclick="switchGame('new');" class="selectButton selectable">New</button>
+            <button name="2" onclick="switchGame('2');" class="selectButton selectable">2 Player</button>
+            <button name="car" onclick="switchGame('car');" class="selectButton selectable">Car</button>
+            <button name="sport" onclick="switchGame('sport');" class="selectButton selectable">Sports</button>
+            <button name="nin" onclick="switchGame('nin');" class="selectButton selectable">Nintendo</button>
+            <button name="edd" onclick="switchGame('edd');" class="selectButton selectable">Eddynardo</button>
+            <button name="bloons" onclick="switchGame('bloons');" class="selectButton selectable">Bloons</button>
+         </div>
+         <br>
+         <div class="search-bar" style="margin-top: 25px">
+            <input type="text" name="search" value="" autocomplete="off" id="myinput" onkeyup="searchFunction()" placeholder="Search">
+            <br>
+            <br>
+         </div>
+         <hr>
+         <!-- Portfolio Gallery Grid -->
+         <div class="row">
+            <div name = "Madalin Stunt Cars 2" class="column gameDiv all new car">
+               <a class="blogLink" href="/games/madalin-stunt-cars-2.html">
+                  <div class="content">
+                     <img src="https://pictures.topspeed.com/IMG/crop/201806/madalin-stunt-cars_1600x0w.jpg" alt="Madalin Stunt Cars 2" style="width:100%">
+                     <h4>Madalin Stunt Cars 2</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Slope" class="column gameDiv all new">
+               <a class="blogLink" href="/games/slope.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/vsG6F2X/slope.png" alt="Slope" style="width:100%">
+                     <h4>Slope</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Rolling Sky" class="column gameDiv all new">
+               <a class="blogLink" href="/rolling-sky.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/cwMBSPC/rolling-Sky.png" alt="Rolling Sky" style="width:100%">
+                     <h4>Rolling Sky</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Crossy Road" class="column gameDiv all new">
+               <a class="blogLink" href="/crossy-road.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/0MkBv3X/crossy-Road.png" alt="Crossy Road" style="width:100%">
+                     <h4>Crossy Road</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "8 Ball Pool" class="column gameDiv all new">
+               <a class="blogLink" href="/games/eight-ball.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/zmY3zVh/8ball-Pool.png" alt="8 Ball Pool" style="width:100%">
+                     <h4>8 Ball Pool</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "GangstaClaus" class="column gameDiv all new">
+               <a class="blogLink" href="http://christmas.vitaminlondon.com/15/">
+                  <div class="content">
+                     <img src="https://i.ibb.co/9HwZ7cY/Gangsta-Claus.png" alt="GangstaClaus" style="width:100%">
+                     <h4>GangstaClaus</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Super Mario 64" class="column gameDiv all nin new">
+               <a class="blogLink" href="http://augustberchelmann.com/mario/">
+                  <div class="content">
+                     <img src="https://i.ibb.co/19bzBBW/super-Mario64.png" alt="Super Mario 64" style="width:100%">
+                     <h4>Super Mario 64</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Worlds Hardest Game" class="column gameDiv all">
+               <a class="blogLink" href="/hardest-game.html">
+                  <div class="content" >
+                     <img src="https://i.ibb.co/Y2TFXZp/worlds-Hardest-Game.png" alt="Worlds Hardest Game" style="width:100%">
+                     <h4>Worlds Hardest Game</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Getaway Shootout" class="column gameDiv all 2">
+               <a class="blogLink" href="/getawayShootout">
+                  <div class="content">
+                     <img src="https://i.ibb.co/VHC3hGf/getaway-Shootout.png" alt="Getaway Shootout" style="width:100%">
+                     <h4>Getaway Shootout</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Cross That Road" class="column gameDiv all">
+               <a class="blogLink" href="crossThatRoad.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/yhsTh5M/Cross-That-Road.png" alt="Cross That Road" style="width:100%">
+                     <h4>Cross That Road</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Age of War" class="column gameDiv all">
+               <a class="blogLink" href="/games/age-of-war.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/s3mnZQK/AgeOfWar.png" alt="Age of War" style="width:100%">
+                     <h4>Age of War</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Retro Bowl" class="column gameDiv all sport">
+               <a class="blogLink" href="/retroBowl.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/NNRKFGL/retro-Bowl.png" alt="Retro Bowl" style="width:100%">
+                     <h4>Retro Bowl</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Sans Fight" class="column gameDiv all">
+               <a class="blogLink" href="sansFight.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/nb7vnmk/Sans-Fight.png" alt="Sans Fight" style="width:100%">
+                     <h4>Sans Fight</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Prop Hunt" class="column gameDiv all 2">
+               <a class="blogLink" href="propHunt.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/4MfYrkh/propHunt.png" alt="Prop Hunt" style="width:100%">
+                     <h4>Prop Hunt</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Cat Mario" class="column gameDiv nin all">
+               <a class="blogLink" href="catMario.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/gMQyPGL/catMario.png" alt="Cat Mario" style="width:100%">
+                     <h4>Cat Mario</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Sudoku" class="column gameDiv all">
+               <a class="blogLink" href="/sudoku.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/3TpSQ9S/sudoku.png" alt="Sudoku" style="width:100%">
+                     <h4>Sudoku</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Bloxorz" class="column gameDiv all">
+               <a class="blogLink" href="/bloxorz.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/dQ42rx0/Bloxorz.png" alt="Bloxorz" style="width:100%">
+                     <h4>Bloxorz</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "2048" class="column gameDiv all">
+               <a class="blogLink" href="/games/2048.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/ZfBR56n/2048.png" alt="2048" style="width:100%">
+                     <h4>2048</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Run 3" class="column gameDiv all">
+               <a class="blogLink" href="/run3.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/937P0y7/run3.png" alt="Run 3" style="width:100%">
+                     <h4>Run 3</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Snake" class="column gameDiv all">
+               <a class="blogLink" href="/snake.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/S5WdVby/snake.png" alt="snake" style="width:100%">
+                     <h4>Snake</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Minecraft Classic" class="column gameDiv all">
+               <a class="blogLink" href="/minecraft.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/L542Wfp/minecraft-Classic.png" alt="Minecraft" style="width:100%">
+                     <h4>Minecraft Classic</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Paper Minecraft" class="column gameDiv all">
+               <a class="blogLink" href="/paperMinecraft.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/PGdXZ4n/paper-Minecraft.png" alt="Paper Minecraft" style="width:100%">
+                     <h4>Paper Minecraft</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Potty Racers" class="column gameDiv all">
+               <a class="blogLink" href="/pottyRacers.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/pwHS4WJ/potty-Racers.png" alt="Potty Racers" style="width:100%">
+                     <h4>Potty Racers</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Basketball Legends" class="column gameDiv all 2 sport">
+               <a class="blogLink" href="basketballLegends.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/n12280g/basketball-Legends.png" alt="Basketball Legends" style="width:100%">
+                     <h4>Basketball Legends</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Rooftop Snipers" class="column gameDiv all 2">
+               <a class="blogLink" href="rooftopSnipers.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/GMN0Xqv/rooftop-Snipers.png" alt="Rooftop Snipers" style="width:100%">
+                     <h4>Rooftop Snipers</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Gun Mayhem 2" class="column gameDiv all 2">
+               <a class="blogLink" href="gunMayhem2.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/99mXDmX/Gun-Mayham.png" alt="Gun Mayhem 2" style="width:100%">
+                     <h4>Gun Mayhem 2</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Tank Trouble" class="column gameDiv all 2 car">
+               <a class="blogLink" href="tankTrouble.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/7VyqTzg/tank-Trouble.png" alt="Tank Trouble" style="width:100%">
+                     <h4>Tank Trouble</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "GunBlood" class="column gameDiv all">
+               <a class="blogLink" href="gunBlood.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/WHVfFhb/gunBlood.png" alt="Gun Blood" style="width:100%">
+                     <h4>GunBlood</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Cookie Clicker" class="column gameDiv all">
+               <a class="blogLink" href="cookieClicker.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/KsN35Vm/cookieclicker.png" alt="Cookie Clicker" style="width:100%">
+                     <h4>Cookie Clicker</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Infinite Mario Bros" class="column gameDiv all">
+               <a class="blogLink" href="infMarioBros.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/gMt91QJ/InfMario.png" alt="Infinite Mario Bros" style="width:100%">
+                     <h4>Infinite Mario Bros</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Choppy Orc" class="column gameDiv all edd">
+               <a class="blogLink" href="choppyOrc.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/FxcJ5Hs/Choppy-Orc.png" alt="Choppy Orc" style="width:100%">
+                     <h4>Choppy Orc</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Greedy Mimic" class="column gameDiv all edd">
+               <a class="blogLink" href="greedyMimic.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/2ymw0mN/greedy-Mimic.png" alt="Greedy Mimic" style="width:100%">
+                     <h4>Greedy Mimic</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Hasty Shaman" class="column gameDiv all edd">
+               <a class="blogLink" href="hastyShaman.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/PT12RL7/hasty-Shaman.png" alt="Hasty Shaman" style="width:100%">
+                     <h4>Hasty Shaman</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Sleepy Knight" class="column gameDiv all edd">
+               <a class="blogLink" href="sleepyKnight.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/jHYMvRZ/Sleepy-Knight.png" alt="Sleepy Knight" style="width:100%">
+                     <h4>Sleepy Knight</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Jellybots" class="column gameDiv all edd">
+               <a class="blogLink" href="#" >
+                  <div class="content">
+                     <img src="https://i.ibb.co/47vmdVG/jellybots.png" alt="Jellybots" style="width:100%">
+                     <h4>Jellybots</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "One Trick Mage" class="column gameDiv all edd">
+               <a class="blogLink" href="oneTrickMage.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/GJbztkn/one-Trick-Mage.png" alt="One Trick Mage" style="width:100%">
+                     <h4>One Trick Mage</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Orcs Vs Elves" class="column gameDiv all edd">
+               <a class="blogLink" href="orcsVsElves.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/zFx7R19/orc-Vs-Elves.png" alt="Orcs Vs Elves" style="width:100%">
+                     <h4>Orcs Vs Elves</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Sticky Sorcerer" class="column gameDiv all edd">
+               <a class="blogLink" href="stickySorcerer.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/5hM8QNt/sticky-Sorcerer.png" alt="One Trick Mage" style="width:100%">
+                     <h4>Sticky Sorcerer</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Dozen Bear" class="column gameDiv all edd">
+               <a class="blogLink" href="dozenBear.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/pnZGyL7/Dozen-Bear.png" alt="Dozen Bear" style="width:100%">
+                     <h4>Dozen Bear</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Bloons" class="column gameDiv all bloons">
+               <a class="blogLink" href="bloons.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/McQ74YC/game-Icon-8.png" alt="Bloons" style="width:100%">
+                     <h4>Bloons</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Bloons Tower Defense" class="column gameDiv all bloons">
+               <a class="blogLink" href="bloonsTowerDefense.html
+                  ">
+                  <div class="content">
+                     <img src="https://i.ibb.co/z7jW1xj/game-Icon-9.png" alt="Bloons Tower Defense" style="width:100%">
+                     <h4>Bloons Tower Defense</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Bloons Tower Defense 2" class="column gameDiv all bloons">
+               <a class="blogLink" href="bloonsTowerDefense2.html
+                  ">
+                  <div class="content">
+                     <img src="https://i.ibb.co/6J2dDFb/bloons-TD2.png" alt="Bloons Tower Defense 2" style="width:100%">
+                     <h4>Bloons Tower Defense 2</h4>
+                  </div>
+               </a>
+            </div>
+            <div name = "Super Putin Bros" class="column gameDiv all nin">
+               <a class="blogLink" href="superPutinBros.html">
+                  <div class="content">
+                     <img src="https://i.ibb.co/PGbXsgr/super-Putin-Bros.png" alt="Super Putin Bros" style="width:100%">
+                     <h4>Super Putin Bros</h4>
+                  </div>
+               </a>
+            </div>
+            <!-- END GRID -->
+         </div>
+         <!-- END MAIN -->
+        </div>
+        <div id="progress">
+            <span id="progress-value"></span>
+        </div>
+      <script>
+         filterSelection("all")
+         function filterSelection(c) {
+           var x, i;
+           x = document.getElementsByClassName("column");
+           if (c == "all") c = "";
+           for (i = 0; i < x.length; i++) {
+             w3RemoveClass(x[i], "show");
+             if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+           }
+         }
+         
+         function w3AddClass(element, name) {
+           var i, arr1, arr2;
+           arr1 = element.className.split(" ");
+           arr2 = name.split(" ");
+           for (i = 0; i < arr2.length; i++) {
+             if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+           }
+         }
+         
+         function w3RemoveClass(element, name) {
+           var i, arr1, arr2;
+           arr1 = element.className.split(" ");
+           arr2 = name.split(" ");
+           for (i = 0; i < arr2.length; i++) {
+             while (arr1.indexOf(arr2[i]) > -1) {
+               arr1.splice(arr1.indexOf(arr2[i]), 1);     
+             }
+           }
+           element.className = arr1.join(" ");
+         }
+         
+         
+             var selectedTopic = "all"
+         
+             function searchFunction() {
+                 console.log("run")
+         		var input, filter, ul, li, a, i;
+         		input = document.getElementById('myinput');
+         		filter = input.value.toUpperCase();
+         		ul = document.getElementById('wrapper');
+         		li = document.getElementsByClassName('gameDiv');
+                 var buttons = document.getElementsByClassName('selectable');
+         console.log(li)
+         		for(i=0 ; i< li.length; i++){
+             		a = li[i].getAttribute("name");
+                     console.log(a)
+             		if(a.toUpperCase().indexOf(filter) > -1){
+                         if(li[i].classList.contains(selectedTopic))
+                     	{
+                         	li[i].style.display = "";
+                     	}
+                     	else
+                     	{
+                         	li[i].style.display = 'none';
+                     	}
+             		}
+         
+             		else{
+                 		li[i].style.display = 'none';
+             		}
+         		}
+         }
+             
+             function switchGame(x)
+             {
+                 selectedTopic = x
+                 var buttons = document.getElementsByClassName('selectable');
+                 var games = document.getElementsByClassName('gameDiv');
+                 for(i=0 ; i< buttons.length; i++){
+             		a = buttons[i].getAttribute("name");
+                     if(selectedTopic==a)
+                     {
+                         buttons[i].classList.add('selectedButton');
+                         buttons[i].classList.remove('selectButton');
+                     }
+                     else
+                     {
+                         buttons[i].classList.remove('selectedButton');
+                         buttons[i].classList.add('selectButton');
+                     }
+                     
+         		}
+                 for(i=0 ; i< games.length; i++){
+             		if(games[i].classList.contains(selectedTopic))
+                     {
+                         games[i].style.display = "";
+                     }
+                     else
+                     {
+                         games[i].style.display = 'none';
+                     }
+         		}
+             }
+             
+            let scrollPrecentage = () =>{
+                let scrollProgress = document.getElementById("progress");
+                let progressValue = document.getElementById("progress-value");
+                let pos = document.documentElement.scrollTop;
+                let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                let scrollValue = Math.round(pos * 100 / calcHeight);
+                scrollProgress.style.background = `conic-gradient(#A61414 ${scrollValue}%, #3D3D3D     ${scrollValue}%)`;
+            }
+        window.onscroll = scrollPrecentage;
+        window.onload = scrollPrecentage;
+      </script>
+   </body>
+</html>
